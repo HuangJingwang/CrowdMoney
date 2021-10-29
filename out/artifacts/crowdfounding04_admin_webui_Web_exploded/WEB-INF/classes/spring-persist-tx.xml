@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!--    配置扫描器，主要是为了将Service放入IOC容器-->
+    <context:component-scan base-package="com.example.service"/>
+<!--    配置数据源-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    配置事务切面-->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* *..*ServiceImpl.*(..))"/>
+        
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    
+<!--配置事务的通知-->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+<!--        配置事务的属性-->
+        <tx:attributes>
+<!--            查询方法：只配只读属性，让数据库知道这是一个查询操作，可以进行一定的优化-->
+            <tx:method name="read*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="count*" read-only="true"/>
+            <tx:method name="query*" read-only="true"/>
+
+<!--            增删改方法：配置事务的传播行为，回滚-->
+            <tx:method name="save*" rollback-for="java.lang.RuntimeException" propagation="REQUIRES_NEW"/>
+            <tx:method name="remove*" rollback-for="java.lang.RuntimeException" propagation="REQUIRES_NEW"/>
+            <tx:method name="update*" rollback-for="java.lang.RuntimeException" propagation="REQUIRES_NEW"/>
+            <tx:method name="batch*" rollback-for="java.lang.RuntimeException" propagation="REQUIRES_NEW"/>
+        </tx:attributes>
+    </tx:advice>
+    
+</beans>

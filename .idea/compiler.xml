@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crowdfounding05-common-util" />
+        <module name="pro01-springsecurity-annotation" />
+        <module name="crowdfounding06-common-reverse" />
+        <module name="crowdfounding02-admin-component" />
+        <module name="crowdfounding04-admin-webui" />
+        <module name="crowdfounding03-admin-entity" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CrowdFounding01-admin-parent" target="1.8" />
+      <module name="crowdfounding02-admin-component" target="1.8" />
+      <module name="crowdfounding03-admin-entity" target="1.8" />
+      <module name="crowdfounding04-admin-webui" target="1.8" />
+      <module name="crowdfounding05-common-util" target="1.7" />
+      <module name="crowdfounding06-common-reverse" target="1.7" />
+      <module name="pro01-springsecurity-annotation" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CrowdFounding01-admin-parent" options="-parameters" />
+      <module name="crowdfounding02-admin-component" options="-parameters" />
+      <module name="crowdfounding03-admin-entity" options="-parameters" />
+      <module name="crowdfounding04-admin-webui" options="-parameters" />
+    </option>
+  </component>
+</project>

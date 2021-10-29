@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--    扫描handle （controller）-->
+    <context:component-scan base-package="com.example.mvc"/>
+
+<!--    配置一下注解驱动-->
+    <mvc:annotation-driven/>
+
+<!--    配置视图解析器-->
+    <bean id = "internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/WEB-INF/"/>
+
+
+    </bean>
+
+<!--    配置View-controller 直接关联请求与视图，不必要在写controller方法-->
+    <mvc:view-controller path="/admin/do/login/page.html" view-name="admin_login"/>
+    <mvc:view-controller path="/admin/to/main/page.html" view-name="admin_main"/>
+    <mvc:view-controller path="admin/to/add/page.html" view-name="admin_add"/>
+    <mvc:view-controller path="role/to/page.html" view-name="role_page"/>
+    <mvc:view-controller path="/menu/to/page.html" view-name="menu_page"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/admin/do/login/page.html"/>
+            <mvc:exclude-mapping path="/admin/to/login/page.html"/>
+            <bean class="com.example.mvc.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+<!--    <bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--         指定异常类型和逻辑视图名称的对应关系 -->
+<!--&lt;!&ndash;        <property name="exceptionMappings">&ndash;&gt;-->
+<!--&lt;!&ndash;            <props>&ndash;&gt;-->
+<!--                 key 属性指定异常类型（全类名） -->
+<!--                 文本标签体中指定异常对应的逻辑视图名称 -->
+<!--&lt;!&ndash;                <prop key="java.lang.NullPointerException">system-error</prop>&ndash;&gt;-->
+<!--&lt;!&ndash;            </props>&ndash;&gt;-->
+<!--&lt;!&ndash;        </property>&ndash;&gt;-->
+<!--         使用 exceptionAttribute 可以修改异常对象存入请求域时使用的属性名 -->
+<!--         <property name="exceptionAttribute"></property> -->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+</beans>

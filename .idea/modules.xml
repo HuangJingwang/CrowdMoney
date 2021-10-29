@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CrowdFounding01-admin-parent/CrowdFounding01-admin-parent.iml" filepath="$PROJECT_DIR$/CrowdFounding01-admin-parent/CrowdFounding01-admin-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfounding02-admin-component/crowdfounding02-admin-component.iml" filepath="$PROJECT_DIR$/crowdfounding02-admin-component/crowdfounding02-admin-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfounding03-admin-entity/crowdfounding03-admin-entity.iml" filepath="$PROJECT_DIR$/crowdfounding03-admin-entity/crowdfounding03-admin-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfounding04-admin-webui/crowdfounding04-admin-webui.iml" filepath="$PROJECT_DIR$/crowdfounding04-admin-webui/crowdfounding04-admin-webui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfounding05-common-util/crowdfounding05-common-util.iml" filepath="$PROJECT_DIR$/crowdfounding05-common-util/crowdfounding05-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdfounding06-common-reverse/crowdfounding06-common-reverse.iml" filepath="$PROJECT_DIR$/crowdfounding06-common-reverse/crowdfounding06-common-reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro01-springsecurity-annotation/pro01-springsecurity-annotation.iml" filepath="$PROJECT_DIR$/pro01-springsecurity-annotation/pro01-springsecurity-annotation.iml" />
+    </modules>
+  </component>
+</project>
