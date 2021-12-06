@@ -28,8 +28,7 @@
         $("#Pagination").pagination(totalRecord, properties);
     }
     // 翻页过程中执行的回调函数
-    // 点击“上一页”、“下一页”或“数字页码”都会触发翻页动作，从而导致当前函数被调
-    用
+    // 点击“上一页”、“下一页”或“数字页码”都会触发翻页动作，从而导致当前函数被调用
     // pageIndex 是用户在页面上点击的页码数值
     function pageSelectCallback(pageIndex, jQuery) {
 // pageIndex 是当前页页码的索引，相对于 pageNum 来说，pageIndex 比 pageNum 小 1
